@@ -66,13 +66,7 @@ src="https://www.facebook.com/tr?id=1195567931908156&ev=PageView&noscript=1"
   .ico-btn:hover { background: rgba(0,0,0,.75); }
   .ico-btn svg { display: block; }
 
-  /* OFERTA RELÂMPAGO */
-  .flash-banner{background:#EE4D2D;color:#fff;font-size:16px;font-weight:700;padding:8px 12px;display:flex;align-items:center;gap:6px}
-  .flash-banner .lightning{font-size:26px;color:#ffeb3b}
-  .flash-banner .ends{flex:1;text-align:center;font-size:12px}
-  .timer{display:flex;gap:2px}
-  .timer span{background:#000;color:#fff;padding:2px 4px;border-radius:2px;font-size:14px;min-width:20px;text-align:center}
-
+  
   /* ESPAÇO PARA IMAGEM */
   #areaImagem{background:#fff;text-align:center;padding:12px 0}
 
@@ -275,88 +269,7 @@ function move(dir){
 <!-- ========= FIM CARROSSEL MANUAL ========= -->
 
 
-<!-- BLOCO LARANJA - IGUAL AO PRIMEIRO -->
-<div style="
-  background: linear-gradient(181deg, rgb(245, 63, 45), rgb(254, 99, 50) 87%);
-  border-radius: 0 0 6px 6px;
-  padding: 12px 16px;
-  color: #fff;
-  font-family: Roboto, sans-serif;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-shadow: 0 2px 4px rgba(0,0,0,.1);
-">
-  <!-- ESQUERDA -->
-  <div>
-    <div style="font-size: 14px; margin-bottom: 4px;">
-      <strike style="opacity: .8;">R$ 79,80</strike>
-      <span style="
-        background: #ffe97a;
-        color: #ee4d2d;
-        padding: 2px 4px;
-        border-radius: 2px;
-        font-weight: 700;
-        margin-left: 6px;
-      ">-47%</span>
-    </div>
-    <div style="font-size: 32px; font-weight: 700; line-height: 1;">
-      R$ 32,88
-    </div>
-    <div style="font-size: 12px; opacity: .9; margin-top: 4px;">
-      Em até 5x R$ 6,57
-    </div>
-  </div>
 
-  <!-- DIREITA -->
-  <div style="text-align: right;">
-    <img src="promo-relampago.png" style="height: 24px; margin-bottom: 4px;">
-    <div style="font-size: 14px; font-weight: 700;">2.719 vendidos</div>
-    <div style="display: flex; gap: 4px; margin-top: 6px; align-items: center;">
-      <span style="font-size: 11px;">TERMINA EM:</span>
-      <span id="h" style="
-        background: rgba(0,0,0,.25);
-        padding: 4px 6px;
-        border-radius: 4px;
-        font-weight: 600;
-        min-width: 26px;
-        text-align: center;
-      ">02</span>
-      <span id="m" style="
-        background: rgba(0,0,0,.25);
-        padding: 4px 6px;
-        border-radius: 4px;
-        font-weight: 600;
-        min-width: 26px;
-        text-align: center;
-      ">59</span>
-      <span id="s" style="
-        background: rgba(0,0,0,.25);
-        padding: 4px 6px;
-        border-radius: 4px;
-        font-weight: 600;
-        min-width: 26px;
-        text-align: center;
-      ">59</span>
-    </div>
-  </div>
-</div>
-
-<!-- SCRIPT TIMER -->
-<script>
-(function(){
-  let h = 2, m = 59, s = 59;
-  const elH = document.getElementById('h');
-  const elM = document.getElementById('m');
-  const elS = document.getElementById('s');
-  setInterval(() => {
-    if (--s < 0) { s = 59; if (--m < 0) { m = 59; if (--h < 0) h = 0; } }
-    elH.textContent = String(h).padStart(2, '0');
-    elM.textContent = String(m).padStart(2, '0');
-    elS.textContent = String(s).padStart(2, '0');
-  }, 1000);
-})();
-</script>
 
 
 <!-- CSS que mantém as cores laranjas originais -->
