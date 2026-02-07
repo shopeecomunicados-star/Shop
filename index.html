@@ -187,30 +187,33 @@ body{
   white-space:nowrap;
 }
 
-/* TIMER */
+.oferta-right{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
 .oferta-timer{
   display:flex;
   align-items:center;
-  gap:4px; /* ESPAÇO ENTRE BLOCOS */
-  font-weight:700;
+  gap:4px;
 }
 
 .oferta-timer span{
   background:#000;
   color:#fff;
-  padding:3px 6px;
-  border-radius:2px;
+  padding:4px 6px;
+  border-radius:3px;
   font-size:12px;
-  min-width:22px;
+  min-width:24px;
   text-align:center;
 }
 
-/* dois pontos sem fundo */
 .oferta-timer .dois-pontos{
   background:none;
   padding:0;
   min-width:auto;
-  font-size:12px;
+  color:#fff;
 }
 
 
@@ -266,7 +269,9 @@ body{
   </div>
 </div>
 
-<!-- OFERTA RELÂMPAGO -->
+<div class="thumbs" id="thumbs"></div>
+    
+    <!-- OFERTA RELÂMPAGO -->
 <div class="oferta-relampago">
   <div class="oferta-left">
     <span class="oferta-titulo">OFERTAS RE⚡ÁMPAGO</span>
@@ -281,7 +286,6 @@ body{
 </div>
 
     
-<div class="thumbs" id="thumbs"></div>
 
 <img class="preco-img" src="preco.jpg" alt="Preço">
 <div class="faixa"></div>
@@ -524,7 +528,7 @@ function comprarAgora(){
   window.location.href = "https://seguro.pague.click/api/public/shopify?product=1899515628127&store=18995";
 }
 
-  <script>
+
 /* ===== TIMER OFERTA RELÂMPAGO (1 HORA) ===== */
 window.addEventListener('load', () => {
 
