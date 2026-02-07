@@ -495,30 +495,7 @@ dados.forEach((d,i)=>{
 });
 
 /* ---------- CARROSSEL + MODAL ---------- */
-(()=>{
-  const c=document.getElementById('c');
-  const t=document.getElementById('t');
-  const slides=[...t.children];
-  const total=slides.length;
-  let idx=0;
-  const thumbsDiv=document.getElementById('thumbs');
-  slides.forEach((s,i)=>{
-  const thumb = document.createElement('div');
-  thumb.className = 'thumb' + (i===0 ? ' active' : '');
 
-  /* se for slide de vídeo */
-  if(s.querySelector('video')){
-    thumb.classList.add('video-thumb');
-    const videoEl = s.querySelector('video');
-    const poster = videoEl.getAttribute('poster');
-    thumb.style.backgroundImage = `url(${poster})`;
-  }else{
-    thumb.style.backgroundImage = s.style.backgroundImage;
-  }
-
-  thumb.addEventListener('click',()=>move(i));
-  thumbsDiv.appendChild(thumb);
-});
 
   const thumbs=[...thumbsDiv.children];
   const video = document.getElementById('videoSlide');
