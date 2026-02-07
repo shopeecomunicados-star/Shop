@@ -139,7 +139,63 @@ body{
   cursor:pointer;
 }
 
-  
+/* ===== OFERTA RELÂMPAGO SHOPEE ===== */
+.oferta-relampago{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:10px 14px;
+  background:#EE4D2D; /* LARANJA SHOPEE */
+  color:#fff;
+  font-family:Roboto, sans-serif;
+}
+
+.oferta-left{
+  display:flex;
+  align-items:center;
+}
+
+.oferta-titulo{
+  font-size:16px;
+  font-weight:700;
+  letter-spacing:.2px;
+}
+
+/* garante que o ⚡ fique colado como letra */
+.oferta-titulo span,
+.oferta-titulo{
+  white-space:nowrap;
+}
+
+.oferta-right{
+  display:flex;
+  align-items:center;
+  gap:6px;
+}
+
+.oferta-termina{
+  font-size:11px;
+  opacity:.95;
+}
+
+.oferta-timer{
+  display:flex;
+  align-items:center;
+  gap:3px;
+  font-weight:700;
+}
+
+.oferta-timer span{
+  background:#000;
+  color:#fff;
+  padding:2px 5px;
+  border-radius:2px;
+  font-size:12px;
+  min-width:20px;
+  text-align:center;
+}
+
+
 </style>
 </head>
   <body>
@@ -191,6 +247,21 @@ body{
   </div>
 </div>
 
+<!-- OFERTA RELÂMPAGO -->
+<div class="oferta-relampago">
+  <div class="oferta-left">
+    <span class="oferta-titulo">OFERTAS RE⚡ÁMPAGO</span>
+  </div>
+
+  <div class="oferta-right">
+    <span class="oferta-termina">TERMINA EM</span>
+    <div class="oferta-timer" id="timer">
+      <span>01</span>:<span>00</span>:<span>00</span>
+    </div>
+  </div>
+</div>
+
+    
 <div class="thumbs" id="thumbs"></div>
 
 <img class="preco-img" src="preco.jpg" alt="Preço">
@@ -433,6 +504,25 @@ function addCarrinho(){
 function comprarAgora(){
   window.location.href = "https://seguro.pague.click/api/public/shopify?product=1899515628127&store=18995";
 }
+
+  <script>
+/* ===== TIMER OFERTA RELÂMPAGO (1 HORA) ===== */
+let tempo = 60 * 60; // 1 hora em segundos
+const timerEl = document.getElementById('timer');
+
+function atualizarTimer(){
+  const h = String(Math.floor(tempo / 3600)).padStart(2,'0');
+  const m = String(Math.floor((tempo % 3600) / 60)).padStart(2,'0');
+  const s = String(tempo % 60).padStart(2,'0');
+
+  timerEl.innerHTML = `<span>${h}</span>:<span>${m}</span>:<span>${s}</span>`;
+
+  if(tempo > 0) tempo--;
+}
+
+setInterval(atualizarTimer, 1000);
+atualizarTimer();
+</script>
 
 
 </script>
