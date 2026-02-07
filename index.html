@@ -38,21 +38,7 @@ body{
   border-color:#000;
 }
 
-  .thumb.video-thumb{
-  position:relative;
-}
-
-.thumb.video-thumb::after{
-  content:'▶';
-  position:absolute;
-  inset:0;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:22px;
-  color:#fff;
-  background:rgba(0,0,0,.35);
-}
+  
 
 
 .faixa{height:9px;background:#d0d0d0}
@@ -534,14 +520,20 @@ dados.forEach((d,i)=>{
 
   const thumbs=[...thumbsDiv.children];
   const video = document.getElementById('videoSlide');
-  if(video){
-  /* bloqueia swipe ao interagir com vídeo */
-  ['touchstart','touchmove','touchend','mousedown','mouseup','click']
-    .forEach(evt=>{
-      video.addEventListener(evt,e=>{
-        e.stopPropagation();
-      });
-    });
+
+if(video){
+
+  /* impede swipe SÓ enquanto o vídeo está em interação */
+  video.addEventListener('touchstart', e => {
+    e.stopPropagation();
+  }, { passive:true });
+
+  video.addEventListener('touchmove', e => {
+    e.stopPropagation();
+  }, { passive:true });
+
+}
+
 
   /* garante play correto */
   video.addEventListener('play',()=>{
