@@ -144,16 +144,29 @@ body{
   display:flex;
   align-items:center;
   justify-content:space-between;
-  padding:12px 14px;
+  padding:12px 16px;
   background:#EE4D2D;
   color:#fff;
-  font-family:Roboto, sans-serif;
 }
 
+/* separa bem os blocos */
 .oferta-left{
+  flex:1;
+}
+
+.oferta-right{
   display:flex;
   align-items:center;
+  gap:12px;
+  padding-left:16px;
 }
+
+/* evita encostar na borda direita */
+.oferta-relampago::after{
+  content:'';
+  width:8px;
+}
+
 
 .oferta-titulo{
   font-size:16px;
@@ -513,12 +526,14 @@ function comprarAgora(){
 
   <script>
 /* ===== TIMER OFERTA RELÂMPAGO (1 HORA) ===== */
-window.addEventListener('DOMContentLoaded', () => {
+window.addEventListener('load', () => {
 
-  let tempo = 60 * 60; // 1 hora em segundos
+  let tempo = 3600; // 1 hora
   const timerEl = document.getElementById('timer');
 
   function atualizarTimer(){
+    if (!timerEl) return;
+
     const h = String(Math.floor(tempo / 3600)).padStart(2,'0');
     const m = String(Math.floor((tempo % 3600) / 60)).padStart(2,'0');
     const s = String(tempo % 60).padStart(2,'0');
@@ -531,17 +546,12 @@ window.addEventListener('DOMContentLoaded', () => {
       <span>${s}</span>
     `;
 
-    if(tempo > 0) tempo--;
+    if (tempo > 0) tempo--;
   }
 
   atualizarTimer();
   setInterval(atualizarTimer, 1000);
-
 });
-</script>
-
-
-
 </script>
 
 </body>
