@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <title>Pistola Airsoft Beretta KL-92 Silver</title>
-<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 img{width:100%;display:block}
@@ -243,10 +244,10 @@ body{
   object-fit:cover;
 }
 
-<body>
+
 </style>
 </head>
-  
+<body>  
 
 <div class="lightbox" id="lightbox" onclick="fecharLightbox()">
   <img id="lightboxImg">
@@ -432,7 +433,7 @@ body{
     </div>
   </div>
 </div>
-  <body>
+  
 
 <script>
 /* ---------- DESCRIÇÃO EXPANDÍVEL ---------- */
@@ -523,17 +524,11 @@ dados.forEach((d,i)=>{
   const video = document.getElementById('videoSlide');
 
 if(video){
-
-  /* impede swipe SÓ enquanto o vídeo está em interação */
-  video.addEventListener('touchstart', e => {
-    e.stopPropagation();
-  }, { passive:true });
-
-  video.addEventListener('touchmove', e => {
-    e.stopPropagation();
-  }, { passive:true });
-
+  video.addEventListener('play',()=>{
+    move(1);
+  });
 }
+
 
 
   /* garante play correto */
