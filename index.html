@@ -144,8 +144,8 @@ body{
   display:flex;
   align-items:center;
   justify-content:space-between;
-  padding:10px 14px;
-  background:#EE4D2D; /* LARANJA SHOPEE */
+  padding:12px 14px;
+  background:#EE4D2D;
   color:#fff;
   font-family:Roboto, sans-serif;
 }
@@ -158,42 +158,48 @@ body{
 .oferta-titulo{
   font-size:16px;
   font-weight:700;
-  letter-spacing:.2px;
-}
-
-/* garante que o ⚡ fique colado como letra */
-.oferta-titulo span,
-.oferta-titulo{
+  letter-spacing:.3px;
   white-space:nowrap;
 }
 
 .oferta-right{
   display:flex;
   align-items:center;
-  gap:6px;
+  gap:10px; /* MAIS ESPAÇO ENTRE TEXTO E TIMER */
 }
 
 .oferta-termina{
   font-size:11px;
   opacity:.95;
+  white-space:nowrap;
 }
 
+/* TIMER */
 .oferta-timer{
   display:flex;
   align-items:center;
-  gap:3px;
+  gap:4px; /* ESPAÇO ENTRE BLOCOS */
   font-weight:700;
 }
 
 .oferta-timer span{
   background:#000;
   color:#fff;
-  padding:2px 5px;
+  padding:3px 6px;
   border-radius:2px;
   font-size:12px;
-  min-width:20px;
+  min-width:22px;
   text-align:center;
 }
+
+/* dois pontos sem fundo */
+.oferta-timer .dois-pontos{
+  background:none;
+  padding:0;
+  min-width:auto;
+  font-size:12px;
+}
+
 
 
 </style>
@@ -507,22 +513,33 @@ function comprarAgora(){
 
   <script>
 /* ===== TIMER OFERTA RELÂMPAGO (1 HORA) ===== */
-let tempo = 60 * 60; // 1 hora em segundos
-const timerEl = document.getElementById('timer');
+window.addEventListener('DOMContentLoaded', () => {
 
-function atualizarTimer(){
-  const h = String(Math.floor(tempo / 3600)).padStart(2,'0');
-  const m = String(Math.floor((tempo % 3600) / 60)).padStart(2,'0');
-  const s = String(tempo % 60).padStart(2,'0');
+  let tempo = 60 * 60; // 1 hora em segundos
+  const timerEl = document.getElementById('timer');
 
-  timerEl.innerHTML = `<span>${h}</span>:<span>${m}</span>:<span>${s}</span>`;
+  function atualizarTimer(){
+    const h = String(Math.floor(tempo / 3600)).padStart(2,'0');
+    const m = String(Math.floor((tempo % 3600) / 60)).padStart(2,'0');
+    const s = String(tempo % 60).padStart(2,'0');
 
-  if(tempo > 0) tempo--;
-}
+    timerEl.innerHTML = `
+      <span>${h}</span>
+      <span class="dois-pontos">:</span>
+      <span>${m}</span>
+      <span class="dois-pontos">:</span>
+      <span>${s}</span>
+    `;
 
-setInterval(atualizarTimer, 1000);
-atualizarTimer();
+    if(tempo > 0) tempo--;
+  }
+
+  atualizarTimer();
+  setInterval(atualizarTimer, 1000);
+
+});
 </script>
+
 
 
 </script>
